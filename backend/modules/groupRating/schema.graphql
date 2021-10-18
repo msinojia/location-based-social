@@ -1,0 +1,15 @@
+# import Error from '../../shared.graphql'
+
+type Rating {
+	ratings: [Int!]!
+	total: Int!
+}
+
+type Query {
+	fetchRatingByGroupId(groupId: String!): Rating
+	fetchRatingOfMember(groupId: String!, memberId: String!): Int!
+}
+
+type Mutation {
+	addGroupRating(memberId: String!, groupId: String!, rating: Int!): [Error!]
+}

@@ -1,0 +1,10 @@
+# import Error from '../../shared.graphql'
+
+type Query {
+	du: String
+}
+
+type Mutation {
+	updateProfile(image: String!, id: String!): [Error!]
+	updateUsername(username: String!, id: String!): [Error!]
+}

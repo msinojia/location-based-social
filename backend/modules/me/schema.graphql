@@ -1,0 +1,18 @@
+# import Error from '../../shared.graphql'
+
+type Location {
+	coordinates: [Float!]!
+}
+
+type User {
+	id: ID!
+	email: String!
+	image: String
+	phone: String
+	username: String
+	location: Location!
+}
+
+type Query {
+	me(id: String!): User
+}

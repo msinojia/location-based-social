@@ -1,0 +1,22 @@
+# import Error from '../../shared.graphql'
+# import User from '../me/schema.graphql'
+# import Group from '../createGroup/schema.graphql'
+
+type UserDetail {
+	id: ID!
+	email: String!
+	image: String
+	phone: String
+	username: String
+	commonGroup: [Group]
+}
+
+type Mutation {
+	setRange(id: String!, range: Float!): Boolean!
+}
+
+type Query {
+	allUser(id: String!, long: Float, lat: Float): [User!]
+	singleUserDetail(visitorId: String!, id: String!): User
+	getRange(id: String!): Float!
+}

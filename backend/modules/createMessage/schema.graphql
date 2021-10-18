@@ -1,0 +1,26 @@
+# import Error from '../../shared.graphql'
+# import User from '../me/schema.graphql'
+
+type Message {
+	senderId: String!
+	receiverId: String!
+	text: String!
+	user: User!
+	time: String!
+}
+
+type Query {
+	fetchMessage(senderId: String!, receiverId: String!, query: Int!): [Message]
+}
+
+type Mutation {
+	createMessage(
+		senderId: String!
+		receiverId: String!
+		text: String!
+	): [Error!]
+}
+
+type Subscription {
+	newMessage(senderId: String!, receiverId: String!): Message!
+}

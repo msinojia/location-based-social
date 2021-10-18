@@ -1,0 +1,38 @@
+# import Error from '../../shared.graphql'
+# import User from '../me/schema.graphql'
+
+type Group {
+	_id: String!
+	name: String!
+	iconLink: String
+	description: String
+}
+
+type Query {
+	fetchGroup(id: String!, long: Float, lat: Float): [Group]
+	fetchGroupToJoin(id: String!, long: Float, lat: Float): [Group]
+	addGroupList(groupId: String!): [User]
+	fetchGroupMember(groupId: String!): [User]
+	groupDetail(groupId: String!): Group!
+	adminList(groupId: String!): [String!]!
+}
+
+type Mutation {
+	createGroup(
+		name: String!
+		iconLink: String
+		creator: String!
+		members: [String!]!
+		long: Float
+		lat: Float
+	): [Error!]
+	updateGroup(
+		groupId: String!
+		description: String
+		imageLink: String
+	): [Error!]
+	addToGroup(members: [String!]!, groupId: String!): [Error!]
+	makeAdmin(groupId: String!, memberId: String!): [Error!]
+	dismissAsAdmin(groupId: String!, memberId: String!): [Error!]
+	remove(groupId: String!, memberId: String!): [Error!]
+}
